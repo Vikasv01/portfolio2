@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vikas V | AI Engineer</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Interactive Canvas Background -->
+    <canvas id="bg-canvas"></canvas>
+
+    <nav class="navbar reveal-nav">
+        <div class="nav-brand">V.</div>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="#about" class="hover-target">About</a>
+                <a href="#experience" class="hover-target">Experience</a>
+                <a href="#contact" class="hover-target">Contact</a>
+            </div>
+            <button id="theme-toggle" class="theme-toggle hover-target" aria-label="Toggle Theme">
+                <i class="fas fa-moon dark-icon"></i>
+                <i class="fas fa-sun light-icon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Floating Audio Player Widget -->
+    <div class="audio-player glass-card" style="padding: 0.8rem 1.2rem; border-radius: 50px;">
+        <audio id="bg-audio" loop muted>
+            <source src="./bg-music.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <button id="audio-toggle" class="audio-btn hover-target" aria-label="Toggle Audio">
+            <i class="fas fa-volume-mute"></i>
+        </button>
+    </div>
+
+    <div class="scroll-container">
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="hero-content text-center">
+                <h1 class="title reveal-hero" style="--delay: 0.1s">VIKAS V</h1>
+                <p class="subtitle reveal-hero" style="--delay: 0.3s">AI & Machine Learning Engineer <span class="dot-divider">•</span> Automation</p>
+                <div class="hero-links reveal-hero" style="--delay: 0.5s">
+                    <a href="mailto:vikasv.ckm@gmail.com" class="glass-btn hover-target"><i class="fas fa-envelope"></i> Email</a>
+                    <a href="https://github.com/Vikasv01" target="_blank" class="glass-btn hover-target"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://www.linkedin.com/in/vikas-v-aa50b7291" target="_blank" class="glass-btn hover-target"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- About Section -->
+            <section id="about" class="section">
+                <div class="glass-card text-center reveal">
+                    <h2 class="section-title">About Me</h2>
+                    <p class="lead-text">Computer Science Engineering student with a strong focus on Artificial Intelligence and Machine Learning.</p>
+                    <p>I build intelligent systems and automation workflows using tools like YOLO, RL (DQN), n8n, and OpenAI APIs. I have published IEEE research in healthcare AI and possess a strong foundation in cybersecurity fundamentals.</p>
+                    
+                    <div class="skills-grid mt-4">
+                        <div class="skill-tag reveal-tag" style="--delay: 0.1s">Python</div>
+                        <div class="skill-tag reveal-tag" style="--delay: 0.15s">C++</div>
+                        <div class="skill-tag reveal-tag" style="--delay: 0.2s">JavaScript</div>
+                        <div class="skill-tag reveal-tag" style="--delay: 0.25s">PyTorch</div>
+                        <div class="skill-tag reveal-tag" style="--delay: 0.3s">YOLO</div>
+                        <div class="skill-tag reveal-tag" style="--delay: 0.35s">n8n</div>
+                        <div class="skill-tag reveal-tag" style="--delay: 0.4s">OpenAI API</div>
+                        <div class="skill-tag reveal-tag" style="--delay: 0.45s">AWS</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section id="experience" class="section">
+                <h2 class="section-title text-center reveal">Experience</h2>
+                
+                <div class="experience-grid" style="max-width: 700px; margin: 0 auto;">
+                    <div class="glass-card hover-lift reveal" style="--delay: 0.1s">
+                        <div class="flex-header">
+                            <h3 class="role">AI Transformational Intern</h3>
+                            <span class="date">Feb 2026 – May 2026</span>
+                        </div>
+                        <h4 class="company" style="display: flex; align-items: center; gap: 0.5rem;">
+                            Cyberlancers 
+                            <span style="font-size: 0.9rem; color: var(--text-dim); font-weight: normal;"><i class="fas fa-map-marker-alt"></i> Mysore, India</span>
+                        </h4>
+                        <p class="experience-desc">Currently an AI Intern at Cyberlancers Pvt Ltd, Mysore.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="section">
+                <h2 class="section-title text-center reveal">Contact Me</h2>
+                
+                <div class="contact-grid reveal" style="--delay: 0.2s">
+                    <div class="glass-card contact-info">
+                        <h3>Let's Connect</h3>
+                        <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.</p>
+                        <div class="contact-methods mt-4">
+                            <div class="contact-method hover-target">
+                                <i class="fas fa-envelope"></i>
+                                <span>vikasv.ckm@gmail.com</span>
+                            </div>
+                            <div class="contact-method hover-target">
+                                <i class="fas fa-phone-alt"></i>
+                                <span>+91 8431288342</span>
+                            </div>
+                            <div class="contact-method hover-target">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>India</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form id="contact-form" action="https://formspree.io/f/xlgveggd" method="POST" class="glass-card contact-form">
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control hover-target" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control hover-target" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" class="form-control hover-target" rows="4" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="glass-btn hover-target" style="width: 100%; justify-content: center;">Send Message</button>
+                        <p id="form-status" style="display: none; margin-top: 1rem; text-align: center; font-weight: 500;"></p>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Education -->
+            <section id="education" class="section">
+                <div class="glass-card text-center reveal">
+                    <h2 class="section-title" style="margin-bottom:1rem;">Education</h2>
+                    <h3 style="color:var(--text-bright); font-size: 1.5rem;">Adichunchanagiri Institute of Technology</h3>
+                    <p style="color:var(--accent-primary);">B.E. in Computer Science (Dec 2022 – Apr 2026)</p>
+                    <div class="certs mt-4">
+                        <span><i class="fas fa-certificate"></i> NPTEL Big Data</span>
+                        <span><i class="fas fa-certificate"></i> Celonis Process Mining</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="footer reveal">
+            <p>&copy; 2026 Vikas V. Clean & Minimal.</p>
+        </footer>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
