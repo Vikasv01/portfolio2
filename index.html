@@ -13,28 +13,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Interactive Canvas Background -->
+    <!-- Interactive Background -->
     <canvas id="bg-canvas"></canvas>
 
     <nav class="navbar reveal-nav">
-        <div class="nav-brand">V.</div>
-        <div class="nav-right">
-            <div class="nav-links">
-                <a href="#about" class="hover-target">About</a>
-                <a href="#experience" class="hover-target">Experience</a>
-                <a href="#contact" class="hover-target">Contact</a>
-            </div>
-            <button id="theme-toggle" class="theme-toggle hover-target" aria-label="Toggle Theme">
-                <i class="fas fa-moon dark-icon"></i>
-                <i class="fas fa-sun light-icon"></i>
-            </button>
+        <div class="logo">V.</div>
+        <div class="nav-links">
+            <a href="#about" class="hover-target">About</a>
+            <a href="#experience" class="hover-target">Experience</a>
+            <a href="#projects" class="hover-target">Projects</a>
+            <a href="#contact" class="hover-target">Contact</a>
         </div>
+        <button id="theme-toggle" class="theme-toggle hover-target" aria-label="Toggle Theme">
+            <i class="fas fa-moon dark-icon"></i>
+            <i class="fas fa-sun light-icon"></i>
+        </button>
     </nav>
 
     <!-- Floating Audio Player Widget -->
     <div class="audio-player glass-card" style="padding: 0.8rem 1.2rem; border-radius: 50px;">
         <audio id="bg-audio" loop muted>
-            <source src="./bg-music.mp3" type="audio/mpeg">
+            <!-- Added ?v=2 to bypass aggressive browser caching of the old audio file -->
+            <source src="./bg-music.mp3?v=2" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
         <button id="audio-toggle" class="audio-btn hover-target" aria-label="Toggle Audio">
@@ -46,12 +46,21 @@
         <!-- Hero Section -->
         <header class="hero">
             <div class="hero-content text-center">
-                <h1 class="title reveal-hero" style="--delay: 0.1s">VIKAS V</h1>
-                <p class="subtitle reveal-hero" style="--delay: 0.3s">AI & Machine Learning Engineer <span class="dot-divider">•</span> Automation</p>
+                <img src="profile.jpg" alt="Vikas V" class="profile-img reveal-hero" style="--delay: 0.1s" onerror="this.src='https://via.placeholder.com/180/000000/3b82f6?text=Profile+Pic'">
+                <h1 class="title reveal-hero" style="--delay: 0.2s">Hi, I'm Vikas</h1>
+                <div class="reveal-hero text-muted" style="--delay: 0.25s; font-size: 0.95rem; margin-top: -1.2rem; margin-bottom: 1.5rem; letter-spacing: 0.5px;">Adichunchanagiri Institute of Technology</div>
+                <p class="subtitle reveal-hero" style="--delay: 0.3s">I am an <span id="typewriter" class="typewriter-text"></span><span class="cursor">|</span></p>
+                <p class="hero-desc reveal-hero" style="--delay: 0.4s" style="margin-bottom: 0.5rem; color: var(--text-bright); font-weight: 500; font-size: 1.2rem;">
+                    I build things that learn, automate, and scale.
+                </p>
+                <p class="hero-desc reveal-hero" style="--delay: 0.4s" style="margin-top: 0;">
+                    Computer Science Engineer focused on building intelligent software systems, scalable applications, and AI-powered solutions for real-world challenges.
+                </p>
                 <div class="hero-links reveal-hero" style="--delay: 0.5s">
-                    <a href="mailto:vikasv.ckm@gmail.com" class="glass-btn hover-target"><i class="fas fa-envelope"></i> Email</a>
+                    <a href="resume.pdf" target="_blank" class="glass-btn hover-target"><i class="fas fa-download"></i> Resume</a>
                     <a href="https://github.com/Vikasv01" target="_blank" class="glass-btn hover-target"><i class="fab fa-github"></i> GitHub</a>
                     <a href="https://www.linkedin.com/in/vikas-v-aa50b7291" target="_blank" class="glass-btn hover-target"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="#contact" class="glass-btn hover-target"><i class="fas fa-envelope"></i> Contact</a>
                 </div>
             </div>
         </header>
@@ -61,18 +70,29 @@
             <section id="about" class="section">
                 <div class="glass-card text-center reveal">
                     <h2 class="section-title">About Me</h2>
-                    <p class="lead-text">Computer Science Engineering student with a strong focus on Artificial Intelligence and Machine Learning.</p>
-                    <p>I build intelligent systems and automation workflows using tools like YOLO, RL (DQN), n8n, and OpenAI APIs. I have published IEEE research in healthcare AI and possess a strong foundation in cybersecurity fundamentals.</p>
+                    <p class="lead-text">Published IEEE researcher in healthcare AI and Computer Science Engineering graduate.</p>
+                    <p>I build intelligent systems and automation workflows using tools like YOLO, RL (DQN), n8n, and OpenAI APIs. I possess a strong foundation in cybersecurity fundamentals and specialize in developing scalable, automated solutions.</p>
                     
-                    <div class="skills-grid mt-4">
-                        <div class="skill-tag reveal-tag" style="--delay: 0.1s">Python</div>
-                        <div class="skill-tag reveal-tag" style="--delay: 0.15s">C++</div>
-                        <div class="skill-tag reveal-tag" style="--delay: 0.2s">JavaScript</div>
-                        <div class="skill-tag reveal-tag" style="--delay: 0.25s">PyTorch</div>
-                        <div class="skill-tag reveal-tag" style="--delay: 0.3s">YOLO</div>
-                        <div class="skill-tag reveal-tag" style="--delay: 0.35s">n8n</div>
-                        <div class="skill-tag reveal-tag" style="--delay: 0.4s">OpenAI API</div>
-                        <div class="skill-tag reveal-tag" style="--delay: 0.45s">AWS</div>
+                    <div class="skills-two-column mt-4 text-left">
+                        <div class="skill-group reveal-tag" style="--delay: 0.1s">
+                            <h4 style="color: var(--accent-primary); margin-bottom: 0.8rem; font-size: 1.1rem;"><i class="fas fa-code"></i> Languages</h4>
+                            <div class="skills-grid" style="justify-content: flex-start;">
+                                <div class="skill-tag">Python</div>
+                                <div class="skill-tag">C</div>
+                                <div class="skill-tag">C++</div>
+                                <div class="skill-tag">JavaScript</div>
+                            </div>
+                        </div>
+                        <div class="skill-group reveal-tag" style="--delay: 0.2s">
+                            <h4 style="color: var(--accent-primary); margin-bottom: 0.8rem; font-size: 1.1rem;"><i class="fas fa-tools"></i> Frameworks & Tools</h4>
+                            <div class="skills-grid" style="justify-content: flex-start;">
+                                <div class="skill-tag">PyTorch</div>
+                                <div class="skill-tag">YOLO</div>
+                                <div class="skill-tag">n8n</div>
+                                <div class="skill-tag">OpenAI API</div>
+                                <div class="skill-tag">AWS</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -91,8 +111,118 @@
                             Cyberlancers 
                             <span style="font-size: 0.9rem; color: var(--text-dim); font-weight: normal;"><i class="fas fa-map-marker-alt"></i> Mysore, India</span>
                         </h4>
-                        <p class="experience-desc">Currently an AI Intern at Cyberlancers Pvt Ltd, Mysore.</p>
+                        <ul class="styled-list" style="margin-top: 1rem;">
+                            <li>Automated AI workflows using n8n and OpenAI APIs, significantly reducing manual data processing overhead.</li>
+                            <li>Building scalable, intelligent systems to streamline enterprise operations.</li>
+                            <li>Integrating LLM architectures into real-world business pipelines for automated decision-making.</li>
+                        </ul>
                     </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="section">
+                <h2 class="section-title text-center reveal">Featured Projects</h2>
+                <div class="projects-grid">
+                    
+                    <!-- Project 1 -->
+                    <div class="glass-card project-card hover-lift reveal" style="--delay: 0.1s">
+                        <div class="project-header">
+                            <h3>Healthcare AI Research (IEEE)</h3>
+                            <div class="project-links">
+                                <a href="#" target="_blank" class="hover-target" title="GitHub"><i class="fab fa-github"></i></a>
+                                <a href="https://ieeexplore.ieee.org/document/11300664" target="_blank" class="hover-target" title="Read Paper"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                        <p class="project-desc">Early fetal health diagnosis system leveraging YOLO, SVM, and ANN architectures to improve medical screening.</p>
+                        <div class="project-tags">
+                            <span class="skill-tag">YOLO</span>
+                            <span class="skill-tag">SVM</span>
+                            <span class="skill-tag">ANN</span>
+                            <span class="skill-tag">Research</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="glass-card project-card hover-lift reveal" style="--delay: 0.2s">
+                        <div class="project-header">
+                            <h3>RL-Based AI Irrigation System</h3>
+                            <div class="project-links">
+                                <a href="#" target="_blank" class="hover-target" title="GitHub"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <p class="project-desc">Custom simulation environment using Deep Q-Networks (DQN) to intelligently optimize agricultural water usage.</p>
+                        <div class="project-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">RL</span>
+                            <span class="skill-tag">DQN</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="glass-card project-card hover-lift reveal" style="--delay: 0.3s">
+                        <div class="project-header">
+                            <h3>Intelligent Automation Pipeline</h3>
+                            <div class="project-links">
+                                <a href="#" target="_blank" class="hover-target" title="GitHub"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <p class="project-desc">Multi-agent workflow automating complex data processing and web traffic analysis with zero human intervention.</p>
+                        <div class="project-tags">
+                            <span class="skill-tag">n8n</span>
+                            <span class="skill-tag">OpenAI</span>
+                            <span class="skill-tag">API</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="glass-card project-card hover-lift reveal" style="--delay: 0.4s">
+                        <div class="project-header">
+                            <h3 style="font-size: 1.15rem;">AI-Based Smart Agriculture & Irrigation System</h3>
+                            <div class="project-links">
+                                <a href="#" target="_blank" class="hover-target" title="GitHub"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <p class="project-desc" style="font-size: 0.85rem;">End-to-end AI platform with real-time soil monitoring, RL-based irrigation logic, RAG-powered explanation generation, Godot 3D visualization, and Streamlit analytics to simulate smart farming.</p>
+                        <div class="project-tags">
+                            <span class="skill-tag">FastAPI</span>
+                            <span class="skill-tag">RL</span>
+                            <span class="skill-tag">Streamlit</span>
+                            <span class="skill-tag">Godot</span>
+                            <span class="skill-tag">RAG</span>
+                            <span class="skill-tag">Gen AI</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Credentials Section -->
+            <section id="credentials" class="section">
+                <h2 class="section-title text-center reveal">Credentials & Publications</h2>
+                <div class="glass-card reveal hover-lift" style="max-width: 800px; margin: 0 auto; --delay: 0.1s; padding: 2.5rem;">
+                    
+                    <!-- Education -->
+                    <div style="margin-bottom: 2rem;">
+                        <h3 class="role" style="margin-bottom:0.8rem; font-size: 1.2rem;"><i class="fas fa-graduation-cap" style="color:var(--accent-primary);"></i> Education</h3>
+                        <h4 class="company" style="font-size: 1.05rem; margin-bottom: 0.2rem;">Adichunchanagiri Institute of Technology</h4>
+                        <p class="date" style="margin: 0 0 0.5rem 0; color: var(--text-dim); font-size: 0.85rem;"><i class="fas fa-map-marker-alt" style="margin-right: 0.3rem;"></i>Chikkamagaluru</p>
+                        <p class="date" style="margin: 0; color: var(--text-bright); font-size: 0.95rem;">B.E. in Computer Science <span style="color: var(--text-dim); font-size: 0.85rem; margin-left: 0.5rem;">(Dec 2022 – Apr 2026)</span></p>
+                    </div>
+
+                    <div style="height: 1px; background: var(--glass-border); margin: 2rem 0;"></div>
+
+                    <!-- Publications -->
+                    <div>
+                        <h3 class="role" style="margin-bottom:0.8rem; font-size: 1.2rem;"><i class="fas fa-book" style="color:var(--accent-primary);"></i> Publications</h3>
+                        <a href="https://ieeexplore.ieee.org/document/11300664" target="_blank" class="hover-target" style="text-decoration: none;">
+                            <h4 class="company" style="font-size: 0.95rem; line-height: 1.4; transition: color 0.3s; margin-bottom: 0.2rem;">
+                                Early Diagnosis and Classification of Fetal Brain Abnormality and Fetal Health Status from a Cardiotocography Dataset <i class="fas fa-external-link-alt" style="font-size: 0.75rem;"></i>
+                            </h4>
+                        </a>
+                        <p class="date" style="margin: 0; font-size: 0.85rem;">IEEE Xplore (2025)</p>
+                    </div>
+
                 </div>
             </section>
 
@@ -108,10 +238,6 @@
                             <div class="contact-method hover-target">
                                 <i class="fas fa-envelope"></i>
                                 <span>vikasv.ckm@gmail.com</span>
-                            </div>
-                            <div class="contact-method hover-target">
-                                <i class="fas fa-phone-alt"></i>
-                                <span>+91 8431288342</span>
                             </div>
                             <div class="contact-method hover-target">
                                 <i class="fas fa-map-marker-alt"></i>
@@ -136,22 +262,15 @@
                 </div>
             </section>
 
-            <!-- Education -->
-            <section id="education" class="section">
-                <div class="glass-card text-center reveal">
-                    <h2 class="section-title" style="margin-bottom:1rem;">Education</h2>
-                    <h3 style="color:var(--text-bright); font-size: 1.5rem;">Adichunchanagiri Institute of Technology</h3>
-                    <p style="color:var(--accent-primary);">B.E. in Computer Science (Dec 2022 – Apr 2026)</p>
-                    <div class="certs mt-4">
-                        <span><i class="fas fa-certificate"></i> NPTEL Big Data</span>
-                        <span><i class="fas fa-certificate"></i> Celonis Process Mining</span>
-                    </div>
-                </div>
             </section>
         </main>
         
         <footer class="footer reveal">
-            <p>&copy; 2026 Vikas V. Clean & Minimal.</p>
+            <p style="color: var(--text-bright); font-weight: 500;">Designed & Built by Vikas V</p>
+            <div style="margin-top: 1rem; display: flex; justify-content: center; gap: 1.5rem;">
+                <a href="https://github.com/Vikasv01" target="_blank" class="hover-target" style="color: var(--text-dim); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent-primary)'" onmouseout="this.style.color='var(--text-dim)'"><i class="fab fa-github"></i> GitHub</a>
+                <a href="resume.pdf" target="_blank" class="hover-target" style="color: var(--text-dim); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent-primary)'" onmouseout="this.style.color='var(--text-dim)'"><i class="fas fa-file-pdf"></i> Resume</a>
+            </div>
         </footer>
     </div>
 

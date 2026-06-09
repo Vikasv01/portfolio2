@@ -54,11 +54,16 @@ document.addEventListener('DOMContentLoaded', () => {
             mouse.vy = mouse.y - lastMouse.y;
         });
 
+        let lastWidth = window.innerWidth;
         window.addEventListener('resize', () => {
-            width = window.innerWidth;
-            height = window.innerHeight;
-            canvas.width = width;
-            canvas.height = height;
+            // Only resize if width changes (prevents mobile scroll jitter when address bar hides)
+            if (window.innerWidth !== lastWidth) {
+                width = window.innerWidth;
+                height = window.innerHeight;
+                canvas.width = width;
+                canvas.height = height;
+                lastWidth = window.innerWidth;
+            }
         });
 
         // Add shockwave on click ("one click and everything spreads away")
@@ -148,13 +153,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const particles = [];
-        for(let i=0; i<900; i++) { // 900 particles for a dense galaxy
+        const numParticles = window.innerWidth < 768 ? 200 : 900; // Optimize for mobile
+        for(let i=0; i<numParticles; i++) { // 900 particles for desktop galaxy
             particles.push(new Particle());
         }
 
         function animateGalaxy() {
-            // Trailing effect instead of clearRect
-            ctx.fillStyle = currentTheme === 'dark' ? 'rgba(10, 10, 10, 0.15)' : 'rgba(249, 250, 251, 0.15)';
+            // Trailing effect for dark mode, clean wipe for light mode
+            ctx.fillStyle = currentTheme === 'dark' ? 'rgba(10, 10, 10, 0.15)' : '#f9fafb';
             ctx.fillRect(0, 0, width, height);
             
             ctx.globalCompositeOperation = currentTheme === 'dark' ? 'lighter' : 'source-over';
@@ -277,7 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     contactForm.reset();
                     formStatus.style.display = 'block';
                     formStatus.innerText = "Response Submitted! I will get back to you soon.";
-                    formStatus.style.color = '#10b981'; // Green success color
+                    formStatus.style.color = 'var(--accent-primary)'; // Matches portfolio theme
                     
                     setTimeout(() => {
                         formStatus.style.display = 'none';
@@ -285,7 +291,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     formStatus.style.display = 'block';
                     formStatus.innerText = "Oops! There was a problem submitting your form.";
-                    formStatus.style.color = '#ef4444'; // Red error color
+                    formStatus.style.color = '#ff4a4a'; // Subtle red error color
                 }
             } catch (error) {
                 formStatus.style.display = 'block';
@@ -295,5 +301,49 @@ document.addEventListener('DOMContentLoaded', () => {
                 submitBtn.innerText = originalBtnText;
             }
         });
+    }
+
+    // --- Typewriter Effect ---
+    const phrases = [
+        "AI Engineer",
+        "Software Engineer",
+        "Intelligent Systems Builder",
+        "Automation Architect",
+        "Tech Innovator"
+    ];
+    
+    const typewriterElement = document.getElementById('typewriter');
+    if (typewriterElement) {
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            
+            if (isDeleting) {
+                typewriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typewriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            
+            let typingSpeed = isDeleting ? 50 : 100;
+            
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                typingSpeed = 2000; // Pause at end of phrase
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typingSpeed = 500; // Pause before typing next word
+            }
+            
+            setTimeout(type, typingSpeed);
+        }
+        
+        // Start typing effect after a small delay to match reveal animations
+        setTimeout(type, 1000);
     }
 });
