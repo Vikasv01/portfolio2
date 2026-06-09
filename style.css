@@ -83,6 +83,16 @@ p {
     font-weight: 700;
     color: var(--text-bright);
     letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.logo-img {
+    height: 32px;
+    width: 32px;
+    object-fit: contain;
+    border-radius: 6px;
 }
 
 .nav-links {
